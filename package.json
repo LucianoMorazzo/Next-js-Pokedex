@@ -12,7 +12,8 @@
     "@nextui-org/react": "^1.0.0-beta.9",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/node": "18.6.5",
