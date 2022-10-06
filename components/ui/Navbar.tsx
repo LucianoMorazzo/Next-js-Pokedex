@@ -11,7 +11,7 @@ export const Navbar = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'start',
-                backgroundColor: theme?.colors.secondary
+                backgroundColor: theme?.colors.gray900.value
             }}
         >
             <Text color="white" h2>P</Text>
