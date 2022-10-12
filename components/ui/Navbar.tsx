@@ -1,4 +1,5 @@
-import { Text, useTheme } from "@nextui-org/react"
+import { Image, Link, Text, useTheme } from "@nextui-org/react";
+import NextLink from 'next/link';
 
 export const Navbar = () => {
 
@@ -11,11 +12,20 @@ export const Navbar = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'start',
-                backgroundColor: theme?.colors.gray900.value
+                backgroundColor: theme?.colors.purple100
             }}
         >
-            <Text color="white" h2>P</Text>
-            <Text color="white" h3>okemon</Text>
+            <NextLink href="/" passHref>
+                <Link>
+                    <div style={{ display: 'flex', alignItems:'center'}}>
+                        <Image
+                            src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'}
+                        />
+                        <Text color="white" h2>P</Text>
+                        <Text color="white" h3>okemon</Text>
+                    </div>
+                </Link>
+            </NextLink>
         </div>
     )
 }
