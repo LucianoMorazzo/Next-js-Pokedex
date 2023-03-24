@@ -22,7 +22,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
           <Card 
             isHoverable 
             isPressable
-            onClick={ onClick }
+            onPress={ onClick }
           >
               <Card.Header>
                 <Row justify='space-between'>
