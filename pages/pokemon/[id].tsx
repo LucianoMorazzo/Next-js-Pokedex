@@ -4,6 +4,7 @@ import { Button, Card, Container, Grid, Text, Image } from '@nextui-org/react';
 import { Layout } from '../../components/layouts';
 import { pokemon } from '../../interfaces/pokemonFull';
 import { localFavourites } from '../../utils';
+import confetti from 'canvas-confetti';
 
 
 
@@ -22,6 +23,20 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
   const onToggleFavourite = () => {
     localFavourites.toggleFavourite(pokemon.id);
     setIsInFavourites( !isInFavourites );
+
+    if( isInFavourites ) return;
+
+    confetti({
+      zIndex: 999,
+      particleCount:100,
+      spread:160,
+      angle:-100,
+      origin: {
+        x: 1,
+        y: 0
+      }
+    })
+
   }
 
   return (
@@ -94,6 +109,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
   const pokemons151 = [...Array(151)].map( (value, index) => `${ index + 1 }`);
+
   
   return {
     paths: pokemons151.map( id => ({
@@ -112,11 +128,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const res = await fetch(url);
 
   const data = await res.json();
+
   
 
   return {
     props:{
-      pokemon: data
+      pokemon:{
+        id: data.id,
+        name: data.name,
+        sprites: data.sprites
+      }
     }
   }
 }

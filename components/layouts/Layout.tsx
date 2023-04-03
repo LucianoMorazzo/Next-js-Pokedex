@@ -5,7 +5,7 @@ import { Navbar } from '../ui'
 type Props = {
     children?: React.ReactNode,
     title?: String 
-    favicon?: String
+    favicon?: string
 }
 
 export const Layout: React.FC<Props>  = ({ children, title, favicon }) => {

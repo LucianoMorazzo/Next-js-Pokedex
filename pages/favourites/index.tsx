@@ -1,5 +1,6 @@
-import { Card, Grid } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
+
+
 import { Layout } from '../../components/layouts';
 import { FavouritePokemon } from '../../components/pokemon/FavouritePokemon';
 import { Nofavourites } from '../../components/ui';
