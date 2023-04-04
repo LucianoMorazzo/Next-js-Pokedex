@@ -6,10 +6,11 @@ import { pokemon } from '../../interfaces/pokemonFull';
 import { localFavourites } from '../../utils';
 import confetti from 'canvas-confetti';
 import { pokemonListResponse, smallPokemon } from '../../interfaces';
+import getPokemonInfo from '../../utils/getPokemonInfo';
 
 
 interface Props {
-    pokemon: pokemon;
+  pokemon: pokemon;
 }
 
 
@@ -44,7 +45,7 @@ const PokemonByName: NextPage<Props> = ({ pokemon }) => {
     }
   
     return (
-      <Layout title='pokemonPage' favicon={pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default}>
+      <Layout title={`${pokemon.name}`} description={pokemon.flavor_text} favicon={pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default}>
         <Grid.Container css={{ marginTop: '5px'}} gap={ 2 }>
           <Grid xs={ 12 } sm={ 4 }>
               <Card isHoverable css={{ padding: '30px'}}>
@@ -134,21 +135,10 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { name } = params as { name: string };
-
-  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-
-  const res = await fetch(url);
-
-  const data = await res.json();
   
-
   return {
     props:{
-        pokemon:{
-          id: data.id,
-          name: data.name,
-          sprites: data.sprites
-        }
+      pokemon: await getPokemonInfo( name )
     }
   }
 }

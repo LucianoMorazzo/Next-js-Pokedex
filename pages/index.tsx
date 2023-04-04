@@ -11,7 +11,7 @@ interface Props {
 
 const HomePage: NextPage<Props> = ({ pokemons }) => {
 
- 
+  console.log(pokemons);
   
   return (
    <Layout title="Pokemons" favicon={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'}>
@@ -42,7 +42,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     ...pkm,
     id: i + 1,
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i + 1}.png`
-    
   })
   );
   

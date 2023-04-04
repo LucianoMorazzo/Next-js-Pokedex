@@ -5,6 +5,7 @@ import { Layout } from '../../components/layouts';
 import { pokemon } from '../../interfaces/pokemonFull';
 import { localFavourites } from '../../utils';
 import confetti from 'canvas-confetti';
+import getPokemonInfo from '../../utils/getPokemonInfo';
 
 
 
@@ -123,21 +124,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { id } = params as { id: string };
 
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-
-  const res = await fetch(url);
-
-  const data = await res.json();
-
-  
-
   return {
     props:{
-      pokemon:{
-        id: data.id,
-        name: data.name,
-        sprites: data.sprites
-      }
+      pokemon: await getPokemonInfo( id )
     }
   }
 }
