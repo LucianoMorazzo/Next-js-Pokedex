@@ -10,8 +10,6 @@ interface Props {
 
 
 const HomePage: NextPage<Props> = ({ pokemons }) => {
-
-  console.log(pokemons);
   
   return (
    <Layout title="Pokemons" favicon={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'}>

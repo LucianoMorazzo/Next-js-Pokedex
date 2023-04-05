@@ -12,7 +12,8 @@ export const Navbar = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'start',
-                backgroundColor: 'purple'
+                backgroundColor: theme?.colors.purple100.value,
+                padding: '0 15px'
             }}
         >
             <NextLink href="/" passHref>

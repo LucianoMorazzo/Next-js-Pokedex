@@ -14,10 +14,7 @@ interface Props {
 }
 
 
-const PokemonByName: NextPage<Props> = ({ pokemon }) => { 
-
-    console.log(pokemon);
-    
+const PokemonByName: NextPage<Props> = ({ pokemon }) => {     
   
     const [isInFavourites, setIsInFavourites] = useState( false );
   
@@ -45,7 +42,7 @@ const PokemonByName: NextPage<Props> = ({ pokemon }) => {
     }
   
     return (
-      <Layout title={`${pokemon.name}`} description={pokemon.flavor_text} favicon={pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default}>
+      <Layout title={`${pokemon.name}`} description={pokemon.final_entry} favicon={pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default}>
         <Grid.Container css={{ marginTop: '5px'}} gap={ 2 }>
           <Grid xs={ 12 } sm={ 4 }>
               <Card isHoverable css={{ padding: '30px'}}>
