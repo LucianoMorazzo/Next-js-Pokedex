@@ -29,8 +29,8 @@ export const Navbar = () => {
 
             <NextLink href="/favourites" passHref>
                 <Link>
-                    <div style={{ display: 'flex', alignItems:'center'}}>
-                        <Text color="white" h3>Favourites</Text>
+                    <div style={{ display: 'flex', alignItems:'center', fontSize: '10px'}}>
+                        <Text color="white" >Favourites</Text>
                     </div>
                 </Link>
             </NextLink>
