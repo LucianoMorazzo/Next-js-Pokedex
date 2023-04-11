@@ -1,28 +1,34 @@
 const getPokemonInfo =  async ( nameOrId: string )  => {
 
-  const pokeurl = `https://pokeapi.co/api/v2/pokemon/${nameOrId}`;
+  try {
 
-  const res = await fetch(pokeurl);
+    const pokeurl = `https://pokeapi.co/api/v2/pokemon/${nameOrId}`;
 
-  const { id, name, sprites, species:{ url } } = await res.json();
+    const res = await fetch(pokeurl);
 
-  const pokeEntryUrl = url;
+    const { id, name, sprites, species:{ url } } = await res.json();
 
-  const entryRes = await fetch(pokeEntryUrl);
+    // const pokeEntryUrl = url;
 
-  const { flavor_text_entries:{0: flavor_text } } = await entryRes.json();
+    // const entryRes = await fetch(pokeEntryUrl);
 
-  const flavor = flavor_text.flavor_text[flavor_text];
+    // const { flavor_text_entries:{0: flavor_text } } = await entryRes.json();
 
-  console.log(flavor)
+    // const flavor = flavor_text.flavor_text[flavor_text];
 
-  return {
-    id,
-    name,
-    sprites,
-    flavor
-  }
+
   
+
+    return {
+      id,
+      name,
+      sprites
+    }
+  
+  } catch (error) {
+    return null;
+  }
+
 }
 
 
