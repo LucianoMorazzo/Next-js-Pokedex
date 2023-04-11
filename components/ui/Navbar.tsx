@@ -8,11 +8,11 @@ export const Navbar = () => {
         <div
             style={{
                 display: 'flex',
-                width: '100vw',
                 flexDirection: 'row',
                 alignItems: 'center',
-                justifyContent: 'start',
-                backgroundColor: 'purple'
+                justifyContent: 'space-between',
+                backgroundColor: theme?.colors.purple100.value,
+                padding: '0 20px'
             }}
         >
             <NextLink href="/" passHref>
@@ -23,6 +23,14 @@ export const Navbar = () => {
                         />
                         <Text color="white" h2>P</Text>
                         <Text color="white" h3>okemon</Text>
+                    </div>
+                </Link>
+            </NextLink>
+
+            <NextLink href="/favourites" passHref>
+                <Link>
+                    <div style={{ display: 'flex', alignItems:'center', fontSize: '10px'}}>
+                        <Text color="white" >Favourites</Text>
                     </div>
                 </Link>
             </NextLink>

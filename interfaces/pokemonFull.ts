@@ -19,7 +19,7 @@ export interface pokemon {
     stats:                    Stat[];
     types:                    Type[];
     weight:                   number;
-    flavor_text:              string;
+    final_entry:              string;
 }
 
 export interface Ability {
